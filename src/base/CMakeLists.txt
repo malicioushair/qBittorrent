@@ -219,11 +219,11 @@ target_link_libraries(qbt_base
         ZLIB::ZLIB
     PUBLIC
         LibtorrentRasterbar::torrent-rasterbar
-        Qt::Core
-        Qt::CorePrivate
-        Qt::Network
-        Qt::Sql
-        Qt::Xml
+        Qt${Qt6_VERSION_MAJOR}::Core
+        Qt${Qt6_VERSION_MAJOR}::CorePrivate
+        Qt${Qt6_VERSION_MAJOR}::Network
+        Qt${Qt6_VERSION_MAJOR}::Sql
+        Qt${Qt6_VERSION_MAJOR}::Xml
         qbt_common_cfg
 )
 

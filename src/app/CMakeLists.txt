@@ -1,7 +1,7 @@
 file(GLOB QBT_TS_FILES "${qBittorrent_SOURCE_DIR}/src/lang/*.ts")
 # Custom target to update .ts files and include new strings from source files
 # Depends on Qt's LinguistTools
-get_target_property(QT_LUPDATE_EXECUTABLE Qt::lupdate IMPORTED_LOCATION)
+get_target_property(QT_LUPDATE_EXECUTABLE Qt${Qt6_VERSION_MAJOR}::lupdate IMPORTED_LOCATION)
 add_custom_target(qbt_update_translations
                     COMMAND ${QT_LUPDATE_EXECUTABLE} -extensions ui,c,c++,cc,cpp,cxx,ch,h,h++,hh,hpp,hxx
                                                      ${qBittorrent_SOURCE_DIR}
@@ -175,3 +175,8 @@ if (MSVC)
         OPTIONAL
     )
 endif()
+
+# add_custom_command(TARGET qbt_app  POST_BUILD
+#     COMMAND "${WINDEPLOYQT_EXECUTABLE}" --qmldir ${CMAKE_SOURCE_DIR} "$<TARGET_FILE:qbt_app>"
+#     COMMENT "Running windeployqt..."
+# )

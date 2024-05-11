@@ -6,6 +6,10 @@ project(qBittorrent
     LANGUAGES CXX
 )
 
+execute_process(
+    COMMAND conan install ${CMAKE_SOURCE_DIR} --build=missing --output-folder=${CMAKE_BINARY_DIR} -s build_type=Debug
+)
+
 # version requirements - older versions may work, but you are on your own
 set(minBoostVersion 1.76)
 set(minQt6Version 6.5.0)
@@ -65,3 +69,4 @@ add_subdirectory(dist)
 if (TESTING)
     add_subdirectory(test)
 endif()
+
